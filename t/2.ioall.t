@@ -26,8 +26,8 @@ $g2 = $io->slurp;
 
 ok(-f 't/graph.ioall.dot');
 # Ignore font-sizes, it's system-dependant
-$g1 =~ s/\d/0/g;
-$g2 =~ s/\d/0/g;
+$g1 =~ s/\d+/0/g;
+$g2 =~ s/\d+/0/g;
 ok($g1 eq $g2);
 $io->unlink;
 
