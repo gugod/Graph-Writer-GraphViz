@@ -18,8 +18,8 @@ $/ = undef;
 my $g1 = <DATA>;
 my $g2 = io('t/graph.simple.dot')->slurp;
 # Ignore font-sizes, it's system-dependant
-$g1 =~ s/\d/0/g;
-$g2 =~ s/\d/0/g;
+$g1 =~ s/\d+/0/g;
+$g2 =~ s/\d+/0/g;
 ok($g1 eq $g2);
 unlink('t/graph.simple.dot');
 
