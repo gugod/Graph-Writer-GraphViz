@@ -6,7 +6,7 @@ use Graph::Writer;
 use vars qw(@ISA);
 @ISA = qw(Graph::Writer);
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 # Global GraphViz Parameters
 my %graph_param;
