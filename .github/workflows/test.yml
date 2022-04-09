@@ -1,0 +1,14 @@
+name: test
+
+on: [ push ]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.container }}
+    strategy:
+      matrix:
+        container: [ 'perl:5.34', 'perl:5.32' ]
+    steps:
+      - uses: actions/checkout@v2
+      - run: cpanm -q -n --no-man-pages --installdeps .
+      - run: yath test --qvf
