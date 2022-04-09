@@ -153,6 +153,10 @@ system, like, 'gif' if you have 'as_gif', 'text' if you can do
 
 L<Graph>, L<Graph::Writer>, L<GraphViz>
 
+=head1 AUTHOR
+
+Kang-min Liu <gugod@gugod.org>
+
 =head1 CREDITS
 
 Thanks for RURBAN@cpan.org for noticing tests failure on different
