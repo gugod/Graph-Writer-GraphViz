@@ -1,4 +1,4 @@
-requires 'IO::All' => '0.30';
-requires 'GraphViz' => '2.02';
-requires 'Graph' => '0.54';
-requires 'Graph::Writer';
+requires 'IO::All' => '0.87';
+requires 'GraphViz' => '2.24';
+requires 'Graph' => '0.9275';
+requires 'Graph::ReadWrite' => '2.10';
