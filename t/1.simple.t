@@ -10,6 +10,9 @@ sub normalized {
     my $s = shift;
     $s =~ s/\d+/0/g;
     $s =~ s/\s+/ /g;
+    # Sort the the graph output, as it comes out
+    # in hash order which isn't necessarily stable.
+    $s = join "\n", sort split /\n/, $s;
     return $s;
 }
 
@@ -17,7 +20,7 @@ my @v = qw/Alice Bob Crude Dr/;
 my $g = Graph->new;
 $g->add_vertices(@v);
 
-my $wr = Graph::Writer::GraphViz->new(-format => 'dot');
+my $wr = Graph::Writer::GraphViz->new(-format => 'plain');
 $wr->write_graph($g,'t/graph.simple.dot');
 
 ok(-f 't/graph.simple.dot');
@@ -33,28 +36,9 @@ ok($g1 eq $g2);
 unlink('t/graph.simple.dot');
 
 __DATA__
-digraph test {
-	graph [bb="0,0,285.9,36",
-		ratio=fill
-	];
-	node [color=black,
-		label="\N"
-	];
-	edge [color=black];
-	Alice	[height=0.5,
-		label=Alice,
-		pos="29.897,18",
-		width=0.83048];
-	Bob	[height=0.5,
-		label=Bob,
-		pos="104.9,18",
-		width=0.75];
-	Crude	[height=0.5,
-		label=Crude,
-		pos="181.9,18",
-		width=0.9027];
-	Dr	[height=0.5,
-		label=Dr,
-		pos="258.9,18",
-		width=0.75];
-}
+graph 1 4.3624 0.5
+node Alice 3.884 0.25 0.95686 0.5 Alice solid ellipse black black
+node Bob 2.759 0.25 0.79437 0.5 Bob solid ellipse black black
+node Crude 0.55065 0.25 1.1013 0.5 Crude solid ellipse black black
+node Dr 1.7312 0.25 0.75 0.5 Dr solid ellipse black black
+stop
